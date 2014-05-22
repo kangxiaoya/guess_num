@@ -20,7 +20,6 @@ function compare_random_number_and_guess_number(random_number, guess_number) {
         _.each(guess_number_array, function (guess_number) {
             if (random_number == guess_number) {
                 y += 1;
-                ;
             }
         })
     });
