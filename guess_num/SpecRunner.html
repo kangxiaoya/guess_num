@@ -30,8 +30,6 @@
     <script type="text/javascript" src="spec/render_result_spec.js"></script>
 
 
-
-
     <script type="text/javascript">
         (function () {
             var jasmineEnv = jasmine.getEnv();
@@ -52,19 +50,26 @@
                     currentWindowOnload();
                 }
                 execJasmine();
+                cannot_use();
             };
 
             function execJasmine() {
                 jasmineEnv.execute();
-            }
+            };
 
+            function cannot_use() {
+                if (localStorage.random_number == '') {
+                    document.getElementById('input_guess').disabled = true;
+                    document.getElementById('confirm').disabled = true;
+                }
+            };
         })();
     </script>
 
 </head>
-<body bgcolor="#d0d0d0" style="font-family: Georgia">
+<body bgcolor="#d0d0d0">
 <div align="right">
-    <button onclick="get_random_number()">开始</button>
+    <button id="product_random_number" onclick="ProcessButton.start_again()">开始</button>
 </div>
 <div id="succeed_random_number">
 </div>
@@ -72,9 +77,9 @@
     <input maxlength="4" id="input_guess">
 </div>
 <div align="right">
-    <button  onclick="process_guess_number()">确定</button>
+    <button id="confirm" onclick="ProcessButton.process_guess_number()">确定</button>
 </div>
-<div id="result_show" name="result">
+<div align="right" id="result_show">
 </div>
 </body>
 </html>

@@ -18,6 +18,7 @@ function compare_random_number_and_guess_number(random_number, guess_number) {
     }
     var number = get_same_number(random_number_array, guess_number_array);
     localStorage.result = x + 'A' + (number - x) + 'B';
+    return localStorage.result;
 };
 
 
@@ -31,4 +32,4 @@ function get_same_number(random_number_array, guess_number_array) {
         })
     });
     return y;
-}
+};

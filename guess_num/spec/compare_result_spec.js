@@ -1,4 +1,4 @@
-describe("Compare result", function () {
+describe("CompareNumber", function () {
     beforeEach(function () {
         localStorage.result = '';
     });

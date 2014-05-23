@@ -1,57 +1,47 @@
-input_data_judding = {
-    'not_four_data': function () {
-        alert('请输入四位')
-    },
-    'not_all_number': function () {
-        alert('请输入四位数字')
-    },
-    'exist_repeat': function () {
-        alert('请勿有重复数字')
-    }
+function ProcessButton() {
 };
 
-
-function judge_number(number) {
-    var four_data = judge_be_four_digital(number);
-    var all_number = judge_be_four_number(number);
-    var not_repeat = judge_not_be_repeat(number);
-    if (four_data != 4) {
-        return "not_four_data";
-    }
-    if (!all_number) {
-        return "not_all_number";
-    }
-    if (!not_repeat) {
-        return "exist_repeat";
-    }
-    return "meet_require_number";
-};
-
-
-input_data_judding = {
-    'not_four_data': function () {
-        alert('请输入四位')
-    },
-    'not_all_number': function () {
-        alert('请输入四位数字')
-    },
-    'exist_repeat': function () {
-        alert('请勿有重复数字')
-    }
-};
-
-
-function process_guess_number() {
+ProcessButton.process_guess_number = function () {
     var input = document.getElementById('input_guess').value;
-    var input_judge = judge_number(input);
-    if (localStorage.random_number == '') {
-        alert("请产生随机数")
+    if (localStorage.random_number != '') {
+        var times = localStorage.times;
+        if (times < 6) {
+            times++;
+            localStorage.times = times;
+            var random_number = localStorage.random_number;
+            localStorage.guess_number = input;
+            var guess_number = localStorage.guess_number;
+            var result = compare_random_number_and_guess_number(random_number, guess_number);
+            document.getElementById('result_show').innerHTML = ProcessButton.result_display(result);
+        }
+        if (localStorage.times == 6) {
+            document.getElementById('input_guess').disabled = true;
+            document.getElementById('confirm').disabled = true;
+            document.getElementById('result_show').innerHTML = '已满六次,猜数字失败!'+'正确结果:'+localStorage.random_number;
+        }
+        document.getElementById('input_guess').value = '';
     }
-    if (input_judge == 'meet_require_number') {
-        localStorage.times += 1;
-        localStorage.guess_number = input;
-    } else {
-        input_data_judding[input_judge]();
-    }
+};
 
+ProcessButton.result_display = function (result) {
+    if (result == '4A0B') {
+        document.getElementById('input_guess').disabled = true;
+        document.getElementById('confirm').disabled = true;
+        return result + ",恭喜正确!"
+    }
+    if (result != '4A0B') {
+        return result + ",已猜" + localStorage.times + "次!";
+    }
+};
+
+
+ProcessButton.start_again = function () {
+    document.getElementById('confirm').disabled = false;
+    document.getElementById('input_guess').disabled = false;
+    document.getElementById('result_show').innerHTML = '';
+    localStorage.guess_number = '';
+    localStorage.random_number = '';
+    localStorage.times = ''
+    localStorage.result = '';
+    get_random_number();
 };
