@@ -1,4 +1,4 @@
-describe("Number", function () {
+describe("process number", function () {
     beforeEach(function () {
         localStorage.random_number = '';
     });

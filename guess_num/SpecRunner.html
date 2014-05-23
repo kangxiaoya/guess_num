@@ -24,8 +24,8 @@
     <script type="text/javascript" src="spec/fixture/fixtures.js"></script>
 
     <!-- include spec files here... -->
-    <script type="text/javascript" src="spec/number_spec.js"></script>
-    <script type="text/javascript" src="spec/compare_number_spec.js"></script>
+    <script type="text/javascript" src="spec/process_number_spec.js"></script>
+    <script type="text/javascript" src="spec/compare_result_spec.js"></script>
     <script type="text/javascript" src="spec/process_button_spec.js"></script>
     <script type="text/javascript" src="spec/render_result_spec.js"></script>
 
@@ -64,9 +64,9 @@
 </head>
 <body bgcolor="#d0d0d0" style="font-family: Georgia">
 <div align="right">
-    <button onclick="get_random_number()">产生随机数</button>
+    <button onclick="get_random_number()">开始</button>
 </div>
-<div id="succeed_random">
+<div id="succeed_random_number">
 </div>
 <div align="right">
     <input maxlength="4" id="input_guess">
@@ -74,9 +74,6 @@
 <div align="right">
     <button  onclick="process_guess_number()">确定</button>
 </div>
-<div>
- <button style="float: right" onclick="start_again()">重新开始</button>
- </div>
 <div id="result_show" name="result">
 </div>
 </body>
