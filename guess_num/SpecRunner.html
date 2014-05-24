@@ -17,17 +17,15 @@
     <script type="text/javascript" src="src/compare_number.js"></script>
     <script type="text/javascript" src="src/process_button.js"></script>
     <script type="text/javascript" src="src/number.js"></script>
-    <script type="text/javascript" src="src/result_render.js"></script>
 
     <!-- include fixture files here... -->
-    <script type="text/javascript" src="spec/fixture/fixtures.js"></script>
     <script type="text/javascript" src="spec/fixture/fixtures.js"></script>
 
     <!-- include spec files here... -->
     <script type="text/javascript" src="spec/process_number_spec.js"></script>
     <script type="text/javascript" src="spec/compare_result_spec.js"></script>
-    <script type="text/javascript" src="spec/process_button_spec.js"></script>
-    <script type="text/javascript" src="spec/render_result_spec.js"></script>
+    <script type="text/javascript" src="spec/confirm_button_spec.js"></script>
+    <script type="text/javascript" src="spec/start_button_spec.js"></script>
 
 
     <script type="text/javascript">
@@ -68,18 +66,16 @@
 
 </head>
 <body bgcolor="#d0d0d0">
-<div align="right">
-    <button id="product_random_number" onclick="ProcessButton.start_again()">开始</button>
+<div>
+    <button id="start" onclick="ProcessButton.start()">开始</button>
 </div>
-<div id="succeed_random_number">
-</div>
-<div align="right">
+<div>
     <input maxlength="4" id="input_guess">
 </div>
-<div align="right">
+<div >
     <button id="confirm" onclick="ProcessButton.process_guess_number()">确定</button>
 </div>
-<div align="right" id="result_show">
+<div id="result_show">
 </div>
 </body>
 </html>

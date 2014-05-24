@@ -18,8 +18,8 @@ ProcessButton.process_guess_number = function () {
             document.getElementById('input_guess').disabled = true;
             document.getElementById('confirm').disabled = true;
             document.getElementById('result_show').innerHTML = '已满六次,猜数字失败!'+'正确结果:'+localStorage.random_number;
+            localStorage.clear();
         }
-        document.getElementById('input_guess').value = '';
     }
 };
 
@@ -27,6 +27,7 @@ ProcessButton.result_display = function (result) {
     if (result == '4A0B') {
         document.getElementById('input_guess').disabled = true;
         document.getElementById('confirm').disabled = true;
+        localStorage.clear()
         return result + ",恭喜正确!"
     }
     if (result != '4A0B') {
@@ -35,13 +36,11 @@ ProcessButton.result_display = function (result) {
 };
 
 
-ProcessButton.start_again = function () {
+ProcessButton.start = function () {
     document.getElementById('confirm').disabled = false;
     document.getElementById('input_guess').disabled = false;
     document.getElementById('result_show').innerHTML = '';
-    localStorage.guess_number = '';
-    localStorage.random_number = '';
-    localStorage.times = ''
-    localStorage.result = '';
+    document.getElementById('input_guess').value = '';
+    localStorage.times = 0;
     get_random_number();
 };

@@ -37,11 +37,6 @@ describe("CompareNumber", function () {
         expect(result).toBe("0A3B");
     });
 
-    it("should be 2A1B if random number=3456 and guess number=3460", function () {
-        var result = get_compare_result(3456, 3460);
-        expect(result).toBe("2A1B");
-    });
-
     it("should be 1A2B if random number=3456 and guess number=4396", function () {
         var result = get_compare_result(3456, 4396);
         expect(result).toBe("1A2B");
