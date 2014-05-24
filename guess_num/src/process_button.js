@@ -15,11 +15,14 @@ ProcessButton.process_guess_number = function () {
             document.getElementById('result_show').innerHTML = ProcessButton.result_display(result);
         }
         if (localStorage.times == 6) {
+            var random_number = localStorage.random_number;
+            localStorage.times= 6;
             document.getElementById('input_guess').disabled = true;
             document.getElementById('confirm').disabled = true;
-            document.getElementById('result_show').innerHTML = '已满六次,猜数字失败!'+'正确结果:'+localStorage.random_number;
-            localStorage.clear();
+            var random_number = localStorage.random_number;
+            document.getElementById('result_show').innerHTML = '已满六次,猜数字失败!' + '正确结果:' + localStorage.random_number;
         }
+        document.getElementById('input_guess').value = '';
     }
 };
 
@@ -35,12 +38,11 @@ ProcessButton.result_display = function (result) {
     }
 };
 
-
 ProcessButton.start = function () {
     document.getElementById('confirm').disabled = false;
     document.getElementById('input_guess').disabled = false;
     document.getElementById('result_show').innerHTML = '';
-    document.getElementById('input_guess').value = '';
+    localStorage.result = '';
     localStorage.times = 0;
     get_random_number();
 };

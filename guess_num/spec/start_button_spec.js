@@ -21,15 +21,14 @@ describe("StartButton button", function () {
         expect(result).toBe('');
     });
 
-    it("should clear input guess number", function () {
-        document.getElementById("start").click();
-        document.getElementById("input_guess").value;
-        expect(document.getElementById("input_guess").value).toBe('');
-    });
-
     it("should clear change localStorage times to be 0 ", function () {
         document.getElementById("start").click();
         expect(localStorage.times).toBe('0')
+    });
+
+    it("should clear change localStorage result", function () {
+        document.getElementById("start").click();
+        expect(localStorage.result).toBe('')
     });
 
     it("should storage  a random number in localStorage", function () {

@@ -6,6 +6,7 @@ describe("process number", function () {
 
     afterEach(function () {
         localStorage.random_number = '';
+        localStorage.clear()
     });
 
 
