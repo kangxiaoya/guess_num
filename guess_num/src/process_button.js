@@ -1,7 +1,4 @@
-function ProcessButton() {
-};
-
-ProcessButton.process_guess_number = function () {
+function process_guess_number() {
     var input = document.getElementById('input_guess').value;
     if (localStorage.random_number != '') {
         var times = localStorage.times;
@@ -11,12 +8,14 @@ ProcessButton.process_guess_number = function () {
             var random_number = localStorage.random_number;
             localStorage.guess_number = input;
             var guess_number = localStorage.guess_number;
+            document.getElementById('input_guess').disabled = false;
+            document.getElementById('confirm').disabled = false;
             var result = compare_random_number_and_guess_number(random_number, guess_number);
-            document.getElementById('result_show').innerHTML = ProcessButton.result_display(result);
+            document.getElementById('result_show').innerHTML = result_display(result);
         }
         if (localStorage.times == 6) {
             var random_number = localStorage.random_number;
-            localStorage.times= 6;
+            localStorage.times = 6;
             document.getElementById('input_guess').disabled = true;
             document.getElementById('confirm').disabled = true;
             var random_number = localStorage.random_number;
@@ -25,8 +24,7 @@ ProcessButton.process_guess_number = function () {
         document.getElementById('input_guess').value = '';
     }
 };
-
-ProcessButton.result_display = function (result) {
+function result_display(result) {
     if (result == '4A0B') {
         document.getElementById('input_guess').disabled = true;
         document.getElementById('confirm').disabled = true;
@@ -38,7 +36,7 @@ ProcessButton.result_display = function (result) {
     }
 };
 
-ProcessButton.start = function () {
+function start() {
     document.getElementById('confirm').disabled = false;
     document.getElementById('input_guess').disabled = false;
     document.getElementById('result_show').innerHTML = '';

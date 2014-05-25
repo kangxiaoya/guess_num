@@ -12,8 +12,7 @@ describe("process number", function () {
 
     it("should be a number", function () {
         var data = get_random_number();
-        var is_a_number = !isNaN(data);
-        expect(is_a_number).toBe(true);
+        expect(!isNaN(data)).toBe(true);
     });
 
 
@@ -30,7 +29,6 @@ describe("process number", function () {
         var c = Math.floor(number / 10) % 10;
         var d = Math.floor(number) % 10;
         var different_digits = a != (b || c || d) && b != ( c || d ) && c != d;
-        return different_digits;
         expect(different_digits).toBe(true)
     });
 
@@ -47,11 +45,10 @@ describe("process number", function () {
             })
             same_numbers.push(same);
         }
-        var random_number = '';
-        return random_number = !_.find(same_numbers, function (the_same_number) {
-            return the_same_number.length > 10;
-        })
-        expect(random_number).toBe(true);
+        for (var i = 0; i < 1000; i++) {
+            var Probability = same_numbers[i].length/1000;
+        }
+        expect(Probability ).toBeLessThan(0.005);
     });
 });
 

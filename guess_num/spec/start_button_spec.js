@@ -17,24 +17,9 @@ describe("StartButton button", function () {
 
     it("should clear result", function () {
         document.getElementById("start").click();
-        var result = document.getElementById("result_show").innerHTML;
-        expect(result).toBe('');
+        expect(document.getElementById("result_show").innerHTML).toBe('');
     });
 
-    it("should clear change localStorage times to be 0 ", function () {
-        document.getElementById("start").click();
-        expect(localStorage.times).toBe('0')
-    });
-
-    it("should clear change localStorage result", function () {
-        document.getElementById("start").click();
-        expect(localStorage.result).toBe('')
-    });
-
-    it("should storage  a random number in localStorage", function () {
-        document.getElementById("start").click();
-        expect(localStorage.random_number).toBeDefined()
-    });
 });
 
 
